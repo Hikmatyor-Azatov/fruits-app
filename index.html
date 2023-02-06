@@ -64,18 +64,36 @@
         </select>
         <div id="custom_filter" class="hide">
             <p>Price</p>
-            <p>From <input type="number" /> To <input type="number" /></p>
+            <p>
+                From <input type="number" id="price_from" /> To
+                <input type="number" id="price_to" />
+            </p>
             <p>Unit</p>
             <div>
-                <input type="checkbox" name="kg" id="kg" />
+                <input
+                    type="checkbox"
+                    name="kg"
+                    id="kg"
+                    class="custom_check_filter"
+                />
                 <label for="kg">Kg</label>
             </div>
             <div>
-                <input type="checkbox" name="dozen" id="dozen" />
+                <input
+                    type="checkbox"
+                    name="dozen"
+                    id="dozen"
+                    class="custom_check_filter"
+                />
                 <label for="dozen">Dozen</label>
             </div>
             <div>
-                <input type="checkbox" name="box" id="box" />
+                <input
+                    type="checkbox"
+                    name="box"
+                    id="box"
+                    class="custom_check_filter"
+                />
                 <label for="box">Box</label>
             </div>
             <button onclick="customFilter()">Filter</button>

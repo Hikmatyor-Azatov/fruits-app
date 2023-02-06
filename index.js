@@ -62,7 +62,40 @@ function filterFruits() {
         setAllFruits(fruits_filtered);
         div_custom_filter.classList.add("hide");
     } else {
-        
         div_custom_filter.classList.remove("hide");
     }
+}
+
+function customFilter() {
+    let price_from = document.getElementById("price_from");
+    let price_to = document.getElementById("price_to");
+
+    price_from_value =
+        price_from.value == "" ? -Infinity : parseFloat(price_from.value);
+    price_to_value =
+        price_to.value == "" ? Infinity : parseFloat(price_to.value);
+
+    let custom_check_filters = document.getElementsByClassName(
+        "custom_check_filter"
+    );
+
+    custom_check_filters = Array.prototype.slice.call(custom_check_filters);
+
+    let checked_check_filters = custom_check_filters.filter((check) => {
+        return check.checked;
+    });
+
+    let checked_check_filters_name = checked_check_filters.map((check) => {
+        return check.name;
+    });
+
+    let fruits_filtered = fruits_list.filter((fruit) => {
+        return (
+            checked_check_filters_name.includes(fruit.unit) &&
+            fruit.price >= price_from_value &&
+            fruit.price <= price_to_value
+        );
+    });
+
+    setAllFruits(fruits_filtered);
 }
